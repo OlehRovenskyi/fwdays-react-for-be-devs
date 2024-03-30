@@ -5,6 +5,7 @@ import './App.css'
 import PropTypes from "prop-types";
 import {UserInfo} from "./components/001_UserInfo/UserInfo.jsx";
 import {Clock} from "./components/002_Clock/Clock.jsx";
+import {ReactEvent} from "./components/003_ReactEvent/ReactEvent.jsx";
 
 function Welcome() {
   return <h1 className="title">Welcome Hello, Vic!</h1>
@@ -29,9 +30,10 @@ function App() {
   return (
     <div>
       {/*<Welcome />*/}
-      <Welcome2 name="Vic" age={age} />
+      {/*<Welcome2 name="Vic" age={age} />*/}
       {/*<UserInfo name="Vic" age={age} />*/}
-      <Clock />
+      {/*<Clock />*/}
+      <ReactEvent />
     </div>
   )
 }
