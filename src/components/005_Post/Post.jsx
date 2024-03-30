@@ -5,12 +5,12 @@ import {AddPost} from "./AddPost/AddPost.jsx";
 
 const postInit = [{
   id: 1,
-  title: 'Post 1',
-  description: 'Post 1 content',
+  title: 'PostAsync 1',
+  description: 'PostAsync 1 content',
 }, {
   id: 2,
-  title: 'Post 2',
-  description: 'Post 2 content',
+  title: 'PostAsync 2',
+  description: 'PostAsync 2 content',
 }];
 
 export function Post () {
