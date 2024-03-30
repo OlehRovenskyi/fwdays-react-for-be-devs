@@ -7,6 +7,7 @@ import {UserInfo} from "./components/001_UserInfo/UserInfo.jsx";
 import {Clock} from "./components/002_Clock/Clock.jsx";
 import {ReactEvent} from "./components/003_ReactEvent/ReactEvent.jsx";
 import {Counter} from "./components/004_Counter/Counter.jsx";
+import {Post} from "./components/005_Post/Post.jsx";
 
 function Welcome() {
   return <h1 className="title">Welcome Hello, Vic!</h1>
@@ -35,7 +36,8 @@ function App() {
       {/*<UserInfo name="Vic" age={age} />*/}
       {/*<Clock />*/}
       {/*<ReactEvent />*/}
-      <Counter />
+      {/*<Counter />*/}
+      <Post />
     </div>
   )
 }
