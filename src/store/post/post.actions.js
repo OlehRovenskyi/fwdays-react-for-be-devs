@@ -1,5 +1,5 @@
 import {getPostsAsync} from "../../components/008_PostRedux/PostAsyncApi.js";
-import {createPostAsync, deletePostAsync, updatePostAsync} from "../../components/006_PostAsync/PostAsyncApi.js";
+import {createPostAsync, deletePostAsync, updatePostAsync} from "../../components/008_PostRedux/PostAsyncApi.js";
 
 export const CREATE_POST = '[Post] create Post';
 export const INIT_POSTS = '[Post] init Posts';
