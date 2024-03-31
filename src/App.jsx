@@ -9,6 +9,7 @@ import {ReactEvent} from "./components/003_ReactEvent/ReactEvent.jsx";
 import {Counter} from "./components/004_Counter/Counter.jsx";
 import {Post} from "./components/005_Post/Post.jsx";
 import {PostAsync} from "./components/006_PostAsync/PostAsync.jsx";
+import {CounterRedux} from "./components/007_CounterRedux/CounterRedux.jsx";
 
 function Welcome() {
   return <h1 className="title">Welcome Hello, Vic!</h1>
@@ -37,9 +38,10 @@ function App() {
       {/*<UserInfo name="Vic" age={age} />*/}
       {/*<Clock />*/}
       {/*<ReactEvent />*/}
-      {/*<Counter />*/}
+      {/*<CounterRedux />*/}
       {/*<Post />*/}
-      <PostAsync />
+      {/*<PostAsync />*/}
+      <CounterRedux />
     </div>
   )
 }
