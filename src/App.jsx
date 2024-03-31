@@ -11,6 +11,7 @@ import {Post} from "./components/005_Post/Post.jsx";
 import {PostAsync} from "./components/006_PostAsync/PostAsync.jsx";
 import {CounterRedux} from "./components/007_CounterRedux/CounterRedux.jsx";
 import {PostRedux} from "./components/008_PostRedux/PostRedux.jsx";
+import {UserList} from "./components/009_UserList/UserList.jsx";
 
 function Welcome() {
   return <h1 className="title">Welcome Hello, Vic!</h1>
@@ -43,7 +44,8 @@ function App() {
       {/*<Post />*/}
       {/*<PostRedux />*/}
       {/*<CounterRedux />*/}
-      <PostRedux />
+      {/*<PostRedux />*/}
+      <UserList />
     </div>
   )
 }
