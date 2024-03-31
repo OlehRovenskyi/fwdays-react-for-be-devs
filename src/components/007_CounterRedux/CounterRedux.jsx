@@ -2,7 +2,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {decrementAction, incrementAction, setValueAction} from "../../store/counter/counter.actions.js";
 
 export function CounterRedux() {
-  const counts = useSelector(state => state.value);
+  const counts = useSelector(state => state.counter.value);
   const dispatch = useDispatch();
 
   return (

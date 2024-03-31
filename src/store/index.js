@@ -1,7 +1,16 @@
 import counterReducer from "./counter/counter.reducer.js";
-import {createStore} from "redux";
+import {combineReducers, createStore} from "redux";
 import {composeWithDevTools} from "@redux-devtools/extension";
+import postsReducer from "./post/post.reducer.js";
 
-export const store = createStore(counterReducer, composeWithDevTools());
+const rootReducer = combineReducers({
+  counter: counterReducer,
+  posts: postsReducer,
+});
+
+export const store = createStore(
+  rootReducer,
+  composeWithDevTools()
+);
 
 export default store;
