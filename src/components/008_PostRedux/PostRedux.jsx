@@ -2,31 +2,24 @@ import './PostRedux.scss';
 import {PostItem} from "./PostItem/PostItem.jsx";
 import {useEffect} from "react";
 import {AddPost} from "./AddPost/AddPost.jsx";
-import {createPostAsync, deletePostAsync, getPostsAsync} from "./PostAsyncApi.js";
 import {useDispatch, useSelector} from "react-redux";
-import {createPostAction, deletePostAction, initPostsAction} from "../../store/post/post.actions.js";
+import {
+  createPostRequestAction,
+  deletePostRequestAction,
+  fetchPostsAction
+} from "../../store/post/post.actions.js";
 
 export function PostRedux() {
   const posts = useSelector(state => state.posts.items);
   const dispatch = useDispatch();
 
-  async function initPosts() {
-    try {
-      const initPosts = await getPostsAsync();
-      dispatch(initPostsAction(initPosts));
-    } catch (e) {
-      console.warn(e);
-    }
-  }
-
-  useEffect(() => {
-    initPosts().then();
+  useEffect( () => {
+    dispatch(fetchPostsAction());
   }, []);
 
   async function addPost(post) {
     try {
-      const createdPost = await createPostAsync(post);
-      dispatch(createPostAction(createdPost));
+      dispatch(createPostRequestAction(post));
     } catch (e) {
       console.warn(e);
     }
@@ -34,9 +27,7 @@ export function PostRedux() {
 
   async function deletePost(id) {
     try {
-      await deletePostAsync(id);
-
-      dispatch(deletePostAction(id));
+      dispatch(deletePostRequestAction(id));
     } catch (e) {
       console.warn(e);
     }

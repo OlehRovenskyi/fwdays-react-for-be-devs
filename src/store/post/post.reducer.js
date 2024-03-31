@@ -3,6 +3,7 @@ import {CREATE_POST, DELETE_POST, INIT_POSTS, UPDATE_POST} from "./post.actions.
 const initialState = {
   items: [],
   filters: [],
+  errors: [],
 }
 
 export default function postsReducer(
