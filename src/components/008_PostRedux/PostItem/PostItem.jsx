@@ -1,4 +1,5 @@
 import './PostItem.scss';
+import {Link} from "react-router-dom";
 
 function Detail({description}) {
   return (
@@ -9,9 +10,12 @@ function Detail({description}) {
 export function PostItem({post, onDeletePost}) {
   return (
     <li className="post-item">
-      <div className="post-title border">{post.title}</div>
-      <Detail className="post-title border" description={post.description} />
-      <div className="post-description border">{post.description}</div>
+      <Link to={post.id}>
+        <div className="post-title border">{post.title}</div>
+      </Link>
+      <Link to={`post/${post.id}`}>
+        <div className="post-description border">{post.description}</div>
+      </Link>
       <div>
         <button onClick={() => onDeletePost(post.id)}>delete</button>
       </div>

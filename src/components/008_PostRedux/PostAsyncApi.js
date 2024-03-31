@@ -6,6 +6,13 @@ export async function getPostsAsync() {
   return res.json();
 }
 
+export async function getPostAsync(id) {
+  const res = await fetch(`${POST_URL}/${id}`);
+
+  return res.json();
+}
+
+
 export async function createPostAsync(post) {
   const res = await fetch(POST_URL, {
     method: 'POST',

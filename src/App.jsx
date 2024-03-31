@@ -44,8 +44,8 @@ function App() {
       {/*<Post />*/}
       {/*<PostRedux />*/}
       {/*<CounterRedux />*/}
-      {/*<PostRedux />*/}
-      <UserList />
+      <PostRedux />
+      {/*<UserList />*/}
     </div>
   )
 }

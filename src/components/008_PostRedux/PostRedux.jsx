@@ -8,6 +8,7 @@ import {
   deletePostRequestAction,
   fetchPostsAction
 } from "../../store/post/post.actions.js";
+import {Outlet} from "react-router-dom";
 
 export function PostRedux() {
   const posts = useSelector(state => state.posts.items);
@@ -47,6 +48,8 @@ export function PostRedux() {
       <button onClick={(e) => console.log(e)}>Refresh</button>
 
       <AddPost onAddPost={addPost} />
+
+      <Outlet />
     </>
   );
 }

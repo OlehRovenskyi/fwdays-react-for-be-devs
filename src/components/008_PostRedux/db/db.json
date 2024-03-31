@@ -1,9 +1,9 @@
 {
   "posts": [
     {
-      "id": "1",
       "title": "a title",
-      "description": "a description"
+      "description": "a description",
+      "id": "1"
     }
   ]
 }
