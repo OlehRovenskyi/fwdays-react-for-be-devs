@@ -1,20 +1,19 @@
+import {Link} from "react-router-dom";
+
 export function Navigation() {
   return (
     <div id="sidebar">
       <nav>
         <ul className="menu">
           <li>
-            <a href="/">Home</a>
+            <Link to={"/"}>Home</Link>
           </li>
           <li>
-            <a href="/counter">Counter</a>
+            <Link to={"/counter"}>Counter</Link>
           </li>
           <li>
-            <a href="/posts">Post Redux</a>
+            <Link to={"/posts"}>Post Redux</Link>
           </li>
-          {/*<li>*/}
-          {/*  <a href="/user">User list</a>*/}
-          {/*</li>*/}
         </ul>
       </nav>
     </div>
