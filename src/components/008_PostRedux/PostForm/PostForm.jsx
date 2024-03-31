@@ -3,33 +3,44 @@ import {useDispatch} from "react-redux";
 import {getPostAsync} from "../PostAsyncApi.js";
 import {useNavigate, useParams} from "react-router-dom";
 import {updatePostAsync} from "../../006_PostAsync/PostAsyncApi.js";
+import {useForm} from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup"
+import * as yup from "yup";
+
+const schema = yup
+  .object({
+    title: yup.string().required().length(20),
+    description: yup.string().required(),
+  })
+  .required()
 
 export function PostForm() {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
   const { postId } = useParams();
-  const dispatch = useDispatch();
   let navigate = useNavigate();
+
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors }
+  } = useForm(
+    { resolver: yupResolver(schema) }
+  );
 
   const loadData = async () => {
     const post = await getPostAsync(postId);
-    setTitle(post.title);
-    setDescription(post.description);
+    setValue('title', post.title);
+    setValue('description', post.description);
   };
 
   useEffect(() => {
     loadData();
   }, []);
 
-  async function submit(e) {
-    // console.log(data)
-    // updatePostAsync(postId, {title, description});
-    e.preventDefault();
-
+  async function submit(data) {
     if (postId) {
-      await updatePostAsync(postId, {title, description});
-
-      navigate('/posts');
+      await updatePostAsync(postId, data);
+      // navigate('/posts');
     }
   }
 
@@ -37,10 +48,18 @@ export function PostForm() {
     <div>
       <h2>Post Form</h2>
 
-      <form onSubmit={(e) => submit(e)}>
-        <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+      <form onSubmit={handleSubmit(submit)}>
+        <input type="text"
+               {...register('title')}
+               aria-invalid={errors.title ? "true" : "false"}
+        />
+        {errors.title?.type === 'required' && <span>This field is required</span>}
 
-        <input type="text" value={description} onChange={(e) => setDescription(e.target.value)}/>
+        <input type="text"
+               {...register('description')}
+               aria-invalid={errors.description ? "true" : "false"}
+        />
+        <p>{errors.description?.message}</p>
         <button type="submit">Save</button>
       </form>
     </div>
